@@ -3,7 +3,7 @@ import Yelp from '../api/Yelp';
 export const fetchBusinesses = (term, location, sortBy) => async dispatch => {
     const response = await Yelp.get(`businesses/search?term=${term}&location=${location}&sort_by=${sortBy}`);
 
-    dispatch({ type: 'FETCH_BUSINESSES', payload: response.data });
+    dispatch({ type: 'FETCH_BUSINESSES', payload: response.data.businesses });
 }
 
 export const setSortBy = term => {

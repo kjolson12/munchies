@@ -1,0 +1,9 @@
+.app {
+    background-color: #41444B;
+}
+
+#buttonsAndSearchBar {
+    background-image: url('../images/restaurant.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}

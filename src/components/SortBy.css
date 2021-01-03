@@ -1,0 +1,5 @@
+.btnGroup {
+    display: flex;
+    justify-content: center;
+    padding: 150px 0px 100px;
+}

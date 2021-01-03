@@ -1,0 +1,10 @@
+.banner {
+    background-color: #FDDB3A;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0px;
+}
+
+h1 {
+    color: #41444B;
+}
