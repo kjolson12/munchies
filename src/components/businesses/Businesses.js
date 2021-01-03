@@ -1,9 +1,25 @@
 import React from 'react';
+import { Grid } from 'semantic-ui-react';
+import { connect } from 'react-redux';
 
-const Businesses = () => {
+import Business from '../business/Business';
+
+const Businesses = ({ businesses }) => {
+    const renderBusinesses = () => {
+        return businesses.map(business => <Business business={business} />)
+    };
+
     return (
-        <div>Businesses</div>
+        <Grid centered>
+            {renderBusinesses()}
+        </Grid>
     );
 };
 
-export default Businesses;
+const mapStateToProps = state => {
+    return {
+        businesses: state.businesses
+    }
+}
+
+export default connect(mapStateToProps)(Businesses);
