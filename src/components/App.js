@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Dimmer, Loader } from 'semantic-ui-react';
+import { connect } from 'react-redux';
 
 import './App.css';
 
@@ -8,13 +10,26 @@ import SortBy from './SortBy';
 import Businesses from './businesses/Businesses';
 import MainImage from './MainImage';
 
-const App = () => {
+const App = ({ businesses }) => {
     const [hasSearched, setHasSearched] = useState(false);
 
-    const renderGifOrBusinesses = () => {
-        if (hasSearched) {
+    const determineActive = () => {
+        if (hasSearched && businesses.length === 0) {
+            return true
+        } else return false
+    };
+
+    const renderImageOrBusinesses = () => {
+        if (businesses.length !== 0) {
             return <Businesses />
-        } else return <MainImage />;
+        } else return (
+            <Dimmer.Dimmable dimmed={determineActive()}>
+                <Dimmer active={determineActive()}>
+                    <Loader>Loading</Loader>
+                </Dimmer>
+                <MainImage />
+            </Dimmer.Dimmable>
+        );
     }
 
     return (
@@ -24,9 +39,15 @@ const App = () => {
                 <SortBy />
                 <SearchBar setHasSearched={setHasSearched} />
             </div>
-            {renderGifOrBusinesses()}
+            {renderImageOrBusinesses()}
         </div>
     );
 };
 
-export default App;
+const mapStateToProps = state => {
+    return {
+        businesses: state.businesses
+    }
+}
+
+export default connect(mapStateToProps)(App);
