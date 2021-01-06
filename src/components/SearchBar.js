@@ -6,9 +6,19 @@ import './SearchBar.css';
 import { connect } from 'react-redux';
 import { setSearchTerm, setSearchLocation, fetchBusinesses } from '../actions';
 
-const SearchBar = ({ searchTerm, searchLocation, sortBy, setSearchTerm, setSearchLocation, fetchBusinesses }) => {
+const SearchBar = (
+    {
+        searchTerm,
+        searchLocation,
+        sortBy, setSearchTerm,
+        setSearchLocation,
+        fetchBusinesses,
+        setHasSearched
+    }) => {
     const handleSearch = e => {
         e.preventDefault();
+
+        setHasSearched(true);
 
         fetchBusinesses(searchTerm, searchLocation, sortBy);
     };

@@ -6,15 +6,15 @@ import './Business.css';
 const Business = ({ business }) => {
     return (
         <div>
-            <Image src={business.image_url} size='medium' />
-            <Header id='businessHeader'>{business.name}</Header>
-            <Grid columns={2}>
+            <Image id='imageSize' src={business.image_url} rounded/>
+            <Header textAlign='left' id='businessHeader'>{business.name}</Header>
+            <Grid columns={2} textAlign='left'>
                 <Grid.Column>
                     <p>{business.location.address1}</p>
                     <p>{business.location.city}</p>
                     <p>{business.location.state} {business.location.zip_code}</p>
                 </Grid.Column>
-                <Grid.Column>
+                <Grid.Column textAlign='right'>
                     <Header
                         as='h3'
                         id='categoryHeader'
