@@ -4,10 +4,19 @@
 
 #categoryHeader {
     color: #FDDB3A;
+    margin: 0;
 }
 
 #imageSize {
     width: 300px;
     height: 300px;
     object-fit: cover;
+}
+
+#businessAddress p {
+    margin: 0;
+}
+
+#businessContainer {
+    margin-bottom: 2rem;
 }

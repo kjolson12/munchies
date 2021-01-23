@@ -5,11 +5,11 @@ import './Business.css';
 
 const Business = ({ business }) => {
     return (
-        <div>
-            <Image id='imageSize' src={business.image_url} rounded/>
-            <Header textAlign='left' id='businessHeader'>{business.name}</Header>
+        <div id='businessContainer'>
+            <Image id='imageSize' src={business.image_url} centered rounded />
+            <Header textAlign='left' size='large' id='businessHeader'>{business.name}</Header>
             <Grid columns={2} textAlign='left'>
-                <Grid.Column>
+                <Grid.Column id='businessAddress'>
                     <p>{business.location.address1}</p>
                     <p>{business.location.city}</p>
                     <p>{business.location.state} {business.location.zip_code}</p>

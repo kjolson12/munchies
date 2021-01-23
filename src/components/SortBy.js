@@ -8,7 +8,7 @@ import { setSortBy, fetchBusinesses } from '../actions/index';
 
 const SortBy = ({ setSortBy, fetchBusinesses, sortBy, searchTerm, searchLocation }) => {
     const [activeButton, setActiveButton] = useState('');
-    
+
     const renderActiveButton = button => {
         if (button === activeButton) {
             return 'activeButton';
@@ -19,9 +19,15 @@ const SortBy = ({ setSortBy, fetchBusinesses, sortBy, searchTerm, searchLocation
         fetchBusinesses(searchTerm, searchLocation, sortBy);
     };
 
+    const stackButtons = () => {
+        if (window.screen.availWidth < 390) {
+            return true;
+        } else return false;
+    }
+
     return (
         <div className='btnGroup'>
-            <Button.Group color='black'>
+            <Button.Group color='black' vertical={stackButtons()}>
                 <Button
                     onClick={() => {
                         setSortBy('best_match');
