@@ -4,7 +4,7 @@ import { Container, Form, Button } from 'semantic-ui-react';
 import './SearchBar.css';
 
 import { connect } from 'react-redux';
-import { setSearchTerm, setSearchLocation, fetchBusinesses } from '../actions';
+import { setSearchTerm, setSearchLocation, fetchBusinesses } from '../../actions';
 
 const SearchBar = (
     {

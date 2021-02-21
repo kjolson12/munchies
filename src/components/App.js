@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Dimmer, Loader } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 
 import './App.css';
 
-import Banner from './Banner';
-import SearchBar from './SearchBar';
-import SortBy from './SortBy';
+import Banner from './banner/Banner';
+import SearchBar from './searchBar/SearchBar';
+import SortBy from './sortBy/SortBy';
 import Businesses from './businesses/Businesses';
-import MainImage from './MainImage';
+import MainImage from './mainImage/MainImage';
+import BusinessShow from './businessShow/BusinessShow';
 
 const App = ({ businesses }) => {
     const [hasSearched, setHasSearched] = useState(false);
@@ -39,7 +41,16 @@ const App = ({ businesses }) => {
                 <SortBy />
                 <SearchBar setHasSearched={setHasSearched} />
             </div>
-            {renderImageOrBusinesses()}
+            <Router>
+                <Switch>
+                    <Route path='/business'>
+                        <BusinessShow />
+                    </Route>
+                    <Route path='/'>
+                        {renderImageOrBusinesses()}
+                    </Route>
+                </Switch>
+            </Router>
         </div>
     );
 };

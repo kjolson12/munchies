@@ -4,7 +4,7 @@ import { Button } from 'semantic-ui-react';
 import './SortBy.css';
 
 import { connect } from 'react-redux';
-import { setSortBy, fetchBusinesses } from '../actions/index';
+import { setSortBy, fetchBusinesses } from '../../actions/index';
 
 const SortBy = ({ setSortBy, fetchBusinesses, sortBy, searchTerm, searchLocation }) => {
     const [activeButton, setActiveButton] = useState('');
