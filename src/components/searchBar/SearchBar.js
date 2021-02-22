@@ -39,10 +39,7 @@ const SearchBar = (
                     />
                 </Form.Group>
             </Form>
-            <Button
-                onClick={handleSearch}
-                id='submitButton'
-            >
+            <Button onClick={handleSearch} id='submitButton'>
                 Search
             </Button>
         </Container>

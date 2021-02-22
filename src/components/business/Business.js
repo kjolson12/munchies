@@ -4,10 +4,13 @@ import { Grid, Image, Header, Rating } from 'semantic-ui-react';
 
 import './Business.css';
 
-const Business = ({ business }) => {
+import { connect } from 'react-redux';
+import { fetchBusiness } from '../../actions';
+
+const Business = ({ business, fetchBusiness }) => {
     return (
         <div id='businessContainer'>
-            <Link to='/business'>
+            <Link to='/business' onClick={() => fetchBusiness(business.id)}>
                 <Image id='imageSize' src={business.image_url} centered rounded />
                 <Header textAlign='left' size='large' id='businessHeader'>{business.name}</Header>
                 <Grid columns={2} textAlign='left'>
@@ -32,4 +35,4 @@ const Business = ({ business }) => {
     );
 };
 
-export default Business;
+export default connect(null, { fetchBusiness })(Business);

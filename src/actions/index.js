@@ -6,6 +6,12 @@ export const fetchBusinesses = (term, location, sortBy) => async dispatch => {
     dispatch({ type: 'FETCH_BUSINESSES', payload: response.data.businesses });
 }
 
+export const fetchBusiness = id => async dispatch => {
+    const response = await Yelp.get(`businesses/${id}`);
+
+    dispatch({ type: 'FETCH_BUSINESS', payload: response.data });
+}
+
 export const setSortBy = term => {
     return ({ type: 'SORT_BY', payload: term });
 }

@@ -37,11 +37,11 @@ const App = ({ businesses }) => {
     return (
         <div className='app'>
             <Banner />
-            <div id='buttonsAndSearchBar'>
-                <SortBy />
-                <SearchBar setHasSearched={setHasSearched} />
-            </div>
             <Router>
+                <div id='buttonsAndSearchBar'>
+                    <SortBy />
+                    <SearchBar setHasSearched={setHasSearched} />
+                </div>
                 <Switch>
                     <Route path='/business'>
                         <BusinessShow />
