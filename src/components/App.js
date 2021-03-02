@@ -12,7 +12,7 @@ import Businesses from './businesses/Businesses';
 import MainImage from './mainImage/MainImage';
 import BusinessShow from './businessShow/BusinessShow';
 
-const App = ({ businesses, business }) => {
+const App = ({ businesses }) => {
     const [hasSearched, setHasSearched] = useState(false);
 
     const determineActive = () => {
@@ -44,7 +44,7 @@ const App = ({ businesses, business }) => {
                 </div>
                 <Switch>
                     <Route path='/business'>
-                        <BusinessShow business={business} />
+                        <BusinessShow />
                     </Route>
                     <Route path='/'>
                         {renderImageOrBusinesses()}
@@ -57,8 +57,7 @@ const App = ({ businesses, business }) => {
 
 const mapStateToProps = state => {
     return {
-        businesses: state.businesses,
-        business: state.business
+        businesses: state.businesses
     }
 }
 
