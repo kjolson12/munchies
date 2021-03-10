@@ -7,10 +7,13 @@ import { connect } from 'react-redux';
 import './BusinessShow.css';
 
 const BusinessShow = ({ business }) => {
+    const today = new Date();
+    const dayOfWeek = today.getDay();
+
     const renderImages = () => {
         return business.photos.map(photo => {
             return (
-                <Grid.Row columns='1' centered>
+                <Grid.Row key={photo} columns='1' centered>
                     <Image src={photo} />
                 </Grid.Row>
             );
@@ -21,6 +24,41 @@ const BusinessShow = ({ business }) => {
         return business.categories.map(category => {
             return <span key={category.alias} className='businessCategory'>{category.title}</span>;
         });
+    }
+
+    const renderOpen = () => {
+        if (business.hours[0].is_open_now) {
+            return <span id='businessOpen'>Open</span>
+        } else {
+            return <span id='businessClosed'>Closed</span>
+        }
+    }
+
+    const renderHours = () => {
+        const openTime = business.hours[0].open[dayOfWeek].start;
+        const closeTime = business.hours[0].open[dayOfWeek].end;
+
+        const amPM = hours => hours < 1200 ? 'AM' : 'PM';
+        const convertHours = hours => {
+            const hour = parseInt(hours.toString().slice(0, 2));
+
+            return hour > 12 ? hour - 12 : hour;
+        };
+        const convertMinutes = hours => hours.toString().slice(2);
+
+        const openHour = convertHours(openTime);
+        const openMinute = convertMinutes(openTime);
+        const openAmPm = amPM(openTime);
+
+        const closeHour = convertHours(closeTime);
+        const closeMinute = convertMinutes(closeTime);
+        const closeAmPm = amPM(closeTime);
+
+        return (
+            <span id='todaysHours'>
+                {openHour}:{openMinute}{openAmPm} - {closeHour}:{closeMinute}{closeAmPm}
+            </span>
+        );
     }
 
     const renderLoad = () => {
@@ -35,9 +73,13 @@ const BusinessShow = ({ business }) => {
                             <Rating icon='star' rating={business.rating} maxRating={5} size='massive' />
                             <span id='reviewCountShow'>{business.review_count} reviews</span>
                         </div>
-                        <div>
+                        <div id='categoryContainer'>
                             <span id='businessPrice'>{business.price}</span>
                             {renderCategories()}
+                        </div>
+                        <div id='hoursContainer'>
+                            {renderOpen()}
+                            {renderHours()}
                         </div>
                     </Grid.Column>
                     <Grid.Column width='8' textAlign='center'>

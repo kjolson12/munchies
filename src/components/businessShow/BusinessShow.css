@@ -31,3 +31,26 @@
     color: #F6F4E6;
     margin-right: 1rem;
 }
+
+#categoryContainer {
+    margin-bottom: 1.5rem;
+}
+
+#businessOpen {
+    font-size: 1.5rem;
+    color: limegreen;
+    font-weight: 900;
+    margin-right: 1rem;
+}
+
+#businessClosed {
+    font-size: 1.5rem;
+    color: #F43939;
+    font-weight: 900;
+    margin-right: 1rem;
+}
+
+#todaysHours {
+    font-size: 1.5rem;
+    color: #F6F4E6;
+}
