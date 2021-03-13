@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Button, Grid, Header, Image, Rating } from 'semantic-ui-react';
+import { Container, Button, Grid, Header, Image, Rating, Divider } from 'semantic-ui-react';
 
 import { connect } from 'react-redux';
 
 import './BusinessShow.css';
+import Map from '../map/Map';
 
 const BusinessShow = ({ business }) => {
     const today = new Date();
@@ -27,14 +28,18 @@ const BusinessShow = ({ business }) => {
     }
 
     const renderOpen = () => {
-        if (business.hours[0].is_open_now) {
-            return <span id='businessOpen'>Open</span>
-        } else {
-            return <span id='businessClosed'>Closed</span>
-        }
+        if (business.hours) {
+            if (business.hours[0].is_open_now) {
+                return <span id='businessOpen'>Open</span>
+            } else {
+                return <span id='businessClosed'>Closed</span>
+            }
+        } return <span id='businessClosed'>No hours for this business</span>
     }
 
     const renderHours = () => {
+        if (!business.hours) return;
+
         const openTime = business.hours[0].open[dayOfWeek].start;
         const closeTime = business.hours[0].open[dayOfWeek].end;
 
@@ -80,6 +85,11 @@ const BusinessShow = ({ business }) => {
                         <div id='hoursContainer'>
                             {renderOpen()}
                             {renderHours()}
+                        </div>
+                        <Divider inverted />
+                        <div>
+                            <Header id='locationHeader' size='large'>Location & Hours</Header>
+                            <Map lng={business.coordinates.longitude} lat={business.coordinates.latitude} />
                         </div>
                     </Grid.Column>
                     <Grid.Column width='8' textAlign='center'>
