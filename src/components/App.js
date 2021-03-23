@@ -23,13 +23,19 @@ const App = ({ businesses }) => {
 
     const renderImageOrBusinesses = () => {
         if (businesses.length !== 0) {
-            return <Businesses />
+            return (
+                <div style={{ padding: '3rem 0' }}>
+                    <Businesses />
+                </div>
+            );
         } else return (
             <Dimmer.Dimmable dimmed={determineActive()}>
                 <Dimmer active={determineActive()}>
                     <Loader>Loading</Loader>
                 </Dimmer>
-                <MainImage />
+                <div style={{ padding: '3rem 0' }}>
+                    <MainImage />
+                </div>
             </Dimmer.Dimmable>
         );
     }

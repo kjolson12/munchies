@@ -38,10 +38,10 @@ const SearchBar = (
                         placeholder='Where are you looking?'
                     />
                 </Form.Group>
+                <Button onClick={handleSearch} id='submitButton'>
+                    Search
+                </Button>
             </Form>
-            <Button onClick={handleSearch} id='submitButton'>
-                Search
-            </Button>
         </Container>
     );
 };
