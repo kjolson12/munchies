@@ -11,6 +11,7 @@ import SortBy from './sortBy/SortBy';
 import Businesses from './businesses/Businesses';
 import MainImage from './mainImage/MainImage';
 import BusinessShow from './businessShow/BusinessShow';
+import Footer from './footer/Footer';
 
 const App = ({ businesses }) => {
     const [hasSearched, setHasSearched] = useState(false);
@@ -57,6 +58,7 @@ const App = ({ businesses }) => {
                     </Route>
                 </Switch>
             </Router>
+            <Footer />
         </div>
     );
 };

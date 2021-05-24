@@ -1,0 +1,26 @@
+.footer {
+    background-color: #FDDB3A;
+    padding: 5rem 0 3rem 0;
+}
+
+#footerHeader {
+    color: #41444B;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 1rem;
+}
+
+li {
+    margin: 1rem 0;
+}
+
+li a {
+    color: black;
+    font-weight: 900;
+}
+
+li a:hover {
+    color: white;
+}
