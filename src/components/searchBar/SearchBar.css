@@ -5,3 +5,9 @@
 #formAndButtonContainer {
     padding-bottom: 225px;
 }
+
+@media (max-width: 390px) {
+    #formInput {
+        margin-bottom: 1.5rem;
+    }
+}

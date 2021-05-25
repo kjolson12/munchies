@@ -31,11 +31,13 @@ const SearchBar = (
                         width={8}
                         onChange={e => setSearchTerm(e.target.value)}
                         placeholder='What are you hungry for?'
+                        id='formInput'
                     />
                     <Form.Input
                         width={8}
                         onChange={e => setSearchLocation(e.target.value)}
                         placeholder='Where are you looking?'
+                        id='formInput'
                     />
                 </Form.Group>
                 <Button onClick={handleSearch} id='submitButton'>

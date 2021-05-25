@@ -34,7 +34,7 @@ const App = ({ businesses }) => {
                 <Dimmer active={determineActive()}>
                     <Loader>Loading</Loader>
                 </Dimmer>
-                <div style={{ padding: '3rem 0' }}>
+                <div style={{ padding: '3rem 0' }} >
                     <MainImage />
                 </div>
             </Dimmer.Dimmable>
