@@ -9,6 +9,7 @@ import Banner from './banner/Banner';
 import SearchBar from './searchBar/SearchBar';
 import SortBy from './sortBy/SortBy';
 import Businesses from './businesses/Businesses';
+import IntroHeader from './introHeader/IntroHeader';
 import MainImage from './mainImage/MainImage';
 import BusinessShow from './businessShow/BusinessShow';
 import Footer from './footer/Footer';
@@ -35,6 +36,7 @@ const App = ({ businesses }) => {
                     <Loader>Loading</Loader>
                 </Dimmer>
                 <div style={{ padding: '3rem 0' }} >
+                    <IntroHeader />
                     <MainImage />
                 </div>
             </Dimmer.Dimmable>
